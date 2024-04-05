@@ -1,16 +1,30 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, deprecated_member_use, prefer_const_constructors, prefer_final_fields
+// ignore_for_file: unused_element, prefer_const_constructors, unused_field, prefer_const_literals_to_create_immutables, unnecessary_string_interpolations, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({super.key});
+  final String phoneNumber;
+
+  const OtpScreen({Key? key, required this.phoneNumber}) : super(key: key);
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  final TextEditingController _pinPutController = TextEditingController();
+  final FocusNode _pinPutFocusNode = FocusNode();
+
+  BoxDecoration get _pinPutDecoration {
+    return BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(15.0),
+    );
+  }
+
   Color _buttonColor = Color.fromARGB(255, 195, 193, 193);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,14 +78,39 @@ class _OtpScreenState extends State<OtpScreen> {
                         Text(
                           "Enter the 4 digit OTP sent at",
                           style: TextStyle(
-                              fontSize: 12, fontWeight: FontWeight.w400),
-                        )
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Color.fromRGBO(151, 151, 151, 1)),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    Center(
+                      child: Text(
+                        "${widget.phoneNumber}",
+                        style: TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.w800),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Pinput(
+                        length: 4,
+                        showCursor: true,
+                        onCompleted: (pin) {
+                          // Save the entered OTP
+                          _pinPutController.text = pin;
+                          // Change button color
+                          setState(() {
+                            _buttonColor = Color.fromRGBO(70, 223, 183, 1);
+                          });
+                        },
+                      ),
+                    ),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // Validate OTP
+                        },
                         style: ElevatedButton.styleFrom(
                           padding:
                               EdgeInsets.symmetric(vertical: 2, horizontal: 30),
@@ -85,6 +124,25 @@ class _OtpScreenState extends State<OtpScreen> {
                           style: TextStyle(fontSize: 16, color: Colors.white70),
                         ),
                       ),
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          "Didn’t receive OTP?",
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(width: 2),
+                        Text(
+                          "RESEND OTP",
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                              color: const Color.fromARGB(255, 245, 19, 3)),
+                        )
+                      ],
                     ),
                     SizedBox(height: 300),
                     Center(

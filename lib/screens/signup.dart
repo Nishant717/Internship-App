@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use
 
+import 'package:app/screens/otp.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -135,7 +136,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     SizedBox(height: 15),
                     Center(
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OtpScreen(
+                                  phoneNumber: _phoneNumberController.text),
+                            ),
+                          );
+                        },
                         style: ElevatedButton.styleFrom(
                           padding:
                               EdgeInsets.symmetric(vertical: 2, horizontal: 30),

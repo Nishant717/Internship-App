@@ -21,13 +21,15 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromARGB(255, 154, 187, 155),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/otp",
+      initialRoute: "/signup",
       routes: {
         "/SplashScreen1": (context) => SplashScreen1(),
         "/SplashScreen2": (context) => SplashScreen2(),
         "/login": (context) => LoginScreen(),
         "/signup": (context) => SignupScreen(),
-        "/otp": (context) => OtpScreen()
+        "/otp": (context) => OtpScreen(
+              phoneNumber: '',
+            )
       },
     );
   }
