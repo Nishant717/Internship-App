@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromARGB(255, 154, 187, 155),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/signup",
+      initialRoute: "/SplashScreen1",
       routes: {
         "/SplashScreen1": (context) => SplashScreen1(),
         "/SplashScreen2": (context) => SplashScreen2(),
