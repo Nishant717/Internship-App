@@ -69,7 +69,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     top: Radius.circular(40),
                   ),
                 ),
-                child: ListView(
+                child: Column(
                   children: [
                     Row(
                       children: <Widget>[
@@ -144,7 +144,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         )
                       ],
                     ),
-                    SizedBox(height: 300),
+                    SizedBox(height: 230),
                     Center(
                         child: Text(
                       "or connect with",

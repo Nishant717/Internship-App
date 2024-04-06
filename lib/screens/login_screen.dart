@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     top: Radius.circular(40),
                   ),
                 ),
-                child: ListView(
+                child: Column(
                   children: [
                     Center(
                       child: Text(
@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 300),
+                    SizedBox(height: 230),
                     Center(
                         child: Text(
                       "or connect with",

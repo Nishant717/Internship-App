@@ -75,7 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     top: Radius.circular(40),
                   ),
                 ),
-                child: ListView(
+                child: Column(
                   children: [
                     Center(
                       child: Text(
@@ -159,7 +159,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 300),
+                    SizedBox(height: 230),
                     Center(
                         child: Text(
                       "or connect with",
