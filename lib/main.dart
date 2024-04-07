@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app/screens/login_screen.dart';
 import 'package:app/screens/otp.dart';
@@ -18,10 +19,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       themeMode: ThemeMode.light,
       theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 154, 187, 155),
+        primaryColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: "/SplashScreen1",
+      initialRoute: "/HomeScreen",
       routes: {
         "/SplashScreen1": (context) => SplashScreen1(),
         "/SplashScreen2": (context) => SplashScreen2(),
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         "/signup": (context) => SignupScreen(),
         "/otp": (context) => OtpScreen(
               phoneNumber: '',
-            )
+            ),
+        "/HomeScreen": (context) => HomeScreen()
       },
     );
   }
