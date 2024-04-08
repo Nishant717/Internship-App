@@ -163,7 +163,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.all(15),
                         child: Row(
                           children: <Widget>[
-                            Icon(Icons.details_rounded, size: 45),
+                            Icon(
+                              Icons.details_rounded,
+                              size: 45,
+                              color: Color.fromRGBO(102, 77, 239, 1),
+                            ),
                             SizedBox(width: 20),
                             Text(
                               "Risk\nAssessment",
@@ -241,6 +245,98 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    "Scheduled Appointment",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(48, 48, 48, 1)),
+                  ),
+                  Text(
+                    "View all",
+                    style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w300,
+                        color: Color.fromRGBO(95, 87, 234, 1)),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: 192,
+              width: 372,
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(98, 82, 236, 0.1),
+                borderRadius: BorderRadius.all(Radius.circular(18)),
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(18.0),
+                            border: Border.all(
+                              color: Color.fromRGBO(95, 87, 234, 1),
+                              width: 3.0,
+                            ),
+                          ),
+                          padding: EdgeInsets.all(
+                              0), // Add padding to create space between the image and the border
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                15.0), // Adjust the border radius here to match the container's border radius
+                            child: Image.asset(
+                              "assets/Ashutosh.jpg",
+                              height:
+                                  102, // Subtracting the padding from the image size
+                              width:
+                                  102, // Subtracting the padding from the image size
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(136, 0, 0, 88),
+                            child: Container(
+                              height: 31,
+                              width: 115,
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(255, 255, 255, 1),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(0.0),
+                                  topRight: Radius.circular(18.0),
+                                  bottomLeft: Radius.circular(18.0),
+                                  bottomRight: Radius.circular(0.0),
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Starts in 10 min",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Color.fromRGBO(242, 31, 97, 1)),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ])
+                  ]),
             )
           ]),
         ),
