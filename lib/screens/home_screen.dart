@@ -618,6 +618,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ))
               ]),
+              SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -640,77 +641,128 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: 10),
+              Stack(children: [
+                Container(
+                  height: 67,
+                  width: 354,
+                  decoration: BoxDecoration(
+                    color: Colors.white, // Set the background color to white
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    shape: BoxShape.rectangle,
+                    border: Border.all(
+                      color: Color.fromRGBO(102, 77, 239, 1),
+                      width: 1,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(7, 5, 0, 0),
+                  child: Container(
+                    height: 46.02,
+                    width: 55,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(
+                          8), // Set the same border radius as Material
+                      child: Image.asset(
+                        "assets/medicine.jpg",
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(74, 10, 0, 0),
+                  child: Text(
+                    "The 25 Healthiest Fruits You Can Eat,\n According to a Nutritionist",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                        color: Color.fromRGBO(86, 86, 86, 1)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(74, 43, 0, 0),
+                  child: Text(
+                    "Jun 10, 2021 ",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 10,
+                        color: Color.fromRGBO(173, 173, 173, 1)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(137, 43, 0, 0),
+                  child: Text(
+                    "·",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 10,
+                        color: Color.fromRGBO(173, 173, 173, 1)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(143, 43, 0, 0),
+                  child: Text(
+                    "5min read",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 10,
+                        color: Color.fromRGBO(173, 173, 173, 1)),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(320, 10, 0, 0),
+                  child: Icon(
+                    Icons.bookmark,
+                    color: Color.fromRGBO(95, 87, 234, 1),
+                  ),
+                )
+              ])
             ]),
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        child: BottomNavigationBar(
-          // selectedItemColor: Color.fromRGBO(70, 223, 183, 1),
-          currentIndex: _selectedIndex,
-          onTap: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: Icon(
-                  Icons.home,
-                  color: _selectedIndex == 0
-                      ? Color.fromRGBO(70, 223, 183, 1)
-                      : Colors.grey,
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        selectedFontSize: 0, // Set selectedFontSize to 0 to reduce the height
+        unselectedFontSize:
+            0, // Set unselectedFontSize to 0 to reduce the height
+        elevation: 0, // Set elevation to 0 to reduce the shadow effect
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: _selectedIndex == 0
+                  ? Color.fromRGBO(70, 223, 183, 1)
+                  : Colors.grey,
+            ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_comment_outlined,
+                color: Colors.grey // Color always set to desired color
                 ),
-                onPressed: () {
-                  setState(() {
-                    _selectedIndex = 0;
-                  });
-                },
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: Icon(Icons.add_comment_outlined,
-                    color: Colors.grey // Color always set to desired color
-                    ),
-                onPressed: () {
-                  setState(() {
-                    _selectedIndex = 1;
-                  });
-                },
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: Icon(Icons.addchart_outlined,
-                    color: Colors.grey // Color always set to desired color
-                    ),
-                onPressed: () {
-                  setState(() {
-                    _selectedIndex = 2;
-                  });
-                },
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: Icon(Icons.account_circle_outlined,
-                    color: Colors.grey // Color always set to desired color
-                    ),
-                onPressed: () {
-                  setState(() {
-                    _selectedIndex = 3;
-                  });
-                },
-              ),
-              label: '',
-            ),
-          ],
-        ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.addchart_outlined,
+                color: Colors.grey // Color always set to desired color
+                ),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined,
+                color: Colors.grey // Color always set to desired color
+                ),
+            label: '',
+          ),
+        ],
       ),
     );
   }
